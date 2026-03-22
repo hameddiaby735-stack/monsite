@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Boutique Mobile</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background: #f4f4f4; padding-bottom: 50px; }
+        
+        /* Barre de navigation */
+        nav { background: #333; color: white; padding: 15px; text-align: center; font-weight: bold; }
+
+        .boutique { padding: 15px; display: flex; flex-direction: column; gap: 20px; }
+
+        .produit { 
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+
+        .produit img { width: 100%; height: 200px; object-fit: cover; }
+
+        .infos { padding: 15px; }
+        .prix { color: #27ae60; font-size: 20px; font-weight: bold; margin: 10px 0; }
+
+        button { 
+            background: #007aff; color: white; border: none; width: 100%; 
+            padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;
+        }
+
+        /* Petit compteur de panier */
+        #panier-stats { background: #ff9500; color: white; padding: 10px; text-align: center; position: sticky; top: 0; }
+    </style>
+</head>
+<body>
+
+    <nav>📱 MA BOUTIQUE TECH</nav>
+    <div id="panier-stats">Articles dans le panier : <span id="count">0</span></div>
+
+    <div class="boutique">
+        <!-- Produit 1 -->
+        <div class="produit">
+            <img src="https://picsum.photos" alt="Produit">
+            <div class="infos">
+                <h3>iPhone XR Pro</h3>
+                <p>État comme neuf, batterie 100%.</p>
+                <div class="prix">450 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 2 -->
+        <div class="produit">
+            <img src="https://picsum.photos" alt="Produit">
+            <div class="infos">
+                <h3>Coque Protection MagSafe</h3>
+                <p>Ultra résistante aux chocs.</p>
+                <div class="prix">29 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let total = 0;
+        function ajouterAuPanier() {
+            total++;
+            document.getElementById('count').innerText = total;
+            alert("Produit ajouté ! Total : " + total);
+        }
+    </script>
+
+</body>
+</html>
