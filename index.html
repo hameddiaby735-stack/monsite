@@ -5,30 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Boutique Mobile</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background: #f4f4f4; padding-bottom: 50px; }
-        
-        /* Barre de navigation */
-        nav { background: #333; color: white; padding: 15px; text-align: center; font-weight: bold; }
-
-        .boutique { padding: 15px; display: flex; flex-direction: column; gap: 20px; }
-
-        .produit { 
-            background: white; border-radius: 15px; overflow: hidden; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        body { 
+            font-family: 'Arial', sans-serif; 
+            margin: 0; 
+            background: #f0f4f8; 
+            padding-bottom: 50px; 
         }
 
-        .produit img { width: 100%; height: 200px; object-fit: cover; }
+        /* Barre de navigation */
+        nav { 
+            background: #1e90ff; 
+            color: white; 
+            padding: 15px; 
+            text-align: center; 
+            font-weight: bold; 
+            font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Compteur de panier */
+        #panier-stats { 
+            background: #ff9500; 
+            color: white; 
+            padding: 10px; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            font-weight: bold;
+        }
+
+        .boutique { 
+            padding: 15px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 25px; 
+        }
+
+        .produit { 
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15); 
+            transition: transform 0.3s;
+        }
+        .produit:hover { transform: translateY(-5px); }
+
+        .produit img { width: 100%; height: 220px; object-fit: cover; }
 
         .infos { padding: 15px; }
+
+        .infos h3 { margin: 0; font-size: 22px; color: #333; }
+        .infos p { font-size: 16px; color: #666; margin: 5px 0; }
         .prix { color: #27ae60; font-size: 20px; font-weight: bold; margin: 10px 0; }
 
         button { 
-            background: #007aff; color: white; border: none; width: 100%; 
-            padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;
+            background: #007aff; 
+            color: white; 
+            border: none; 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            cursor: pointer;
+            transition: 0.3s;
         }
-
-        /* Petit compteur de panier */
-        #panier-stats { background: #ff9500; color: white; padding: 10px; text-align: center; position: sticky; top: 0; }
+        button:hover { background: #0051a8; }
     </style>
 </head>
 <body>
@@ -39,7 +80,7 @@
     <div class="boutique">
         <!-- Produit 1 -->
         <div class="produit">
-            <img src="https://picsum.photos" alt="Produit">
+            <img src="https://picsum.photos/400/220?random=1" alt="Produit">
             <div class="infos">
                 <h3>iPhone XR Pro</h3>
                 <p>État comme neuf, batterie 100%.</p>
@@ -50,14 +91,103 @@
 
         <!-- Produit 2 -->
         <div class="produit">
-            <img src="https://picsum.photos" alt="Produit">
+            <img src="https://picsum.photos/400/220?random=2" alt="Produit">
             <div class="infos">
-                <h3>Coque Protection MagSafe</h3>
+                <h3>Coque MagSafe</h3>
                 <p>Ultra résistante aux chocs.</p>
                 <div class="prix">29 €</div>
                 <button onclick="ajouterAuPanier()">Ajouter au panier</button>
             </div>
         </div>
+
+        <!-- Produit 3 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=3" alt="Produit">
+            <div class="infos">
+                <h3>Chargeur rapide 20W</h3>
+                <p>Compatible iPhone et Android.</p>
+                <div class="prix">19 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 4 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=4" alt="Produit">
+            <div class="infos">
+                <h3>Écouteurs Bluetooth</h3>
+                <p>Son clair et longue autonomie.</p>
+                <div class="prix">49 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 5 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=5" alt="Produit">
+            <div class="infos">
+                <h3>Support téléphone voiture</h3>
+                <p>Fixation solide, rotation à 360°.</p>
+                <div class="prix">15 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 6 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=6" alt="Produit">
+            <div class="infos">
+                <h3>Chargeur sans fil</h3>
+                <p>Rapide et compatible avec tous les téléphones.</p>
+                <div class="prix">25 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 7 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=7" alt="Produit">
+            <div class="infos">
+                <h3>Smartwatch</h3>
+                <p>Suivi santé et notifications.</p>
+                <div class="prix">120 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 8 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=8" alt="Produit">
+            <div class="infos">
+                <h3>Protection écran en verre</h3>
+                <p>Anti-rayures et ultra clair.</p>
+                <div class="prix">10 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 9 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=9" alt="Produit">
+            <div class="infos">
+                <h3>Powerbank 10000mAh</h3>
+                <p>Portable, charge rapide.</p>
+                <div class="prix">35 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
+        <!-- Produit 10 -->
+        <div class="produit">
+            <img src="https://picsum.photos/400/220?random=10" alt="Produit">
+            <div class="infos">
+                <h3>Casque audio Bluetooth</h3>
+                <p>Qualité sonore exceptionnelle.</p>
+                <div class="prix">60 €</div>
+                <button onclick="ajouterAuPanier()">Ajouter au panier</button>
+            </div>
+        </div>
+
     </div>
 
     <script>
